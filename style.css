@@ -4,6 +4,7 @@ negro: 575757
 amarillo: F8B42F
 */
 
+
 body{
    font-family: 'Montserrat'; 
    background: linear-gradient(to  top, #F8B42F 50%, #F8B42F,#F8B42F);;
@@ -18,8 +19,8 @@ body{
 .reina h1  {
     font-size: 70px;
     text-align: center;
-    color: #000;
-    text-shadow: 1px 1px 9px #575757;
+    color: #F1F1F1;
+    text-shadow: 1px 0px 0px #000;
 }
 
 
@@ -49,6 +50,8 @@ body{
 
 h3 { /*titutlo del menu*/
   text-align: center;  
+  color: #F1F1F1;
+  text-shadow: 1px 0 0 #000;
 }
 
 .menu-cards{
@@ -67,6 +70,7 @@ h3 { /*titutlo del menu*/
 }
 .card-body h5{
     color: #F1F1F1;
+    transition: all .3s;
 }
 .card-body p{
     font-size: small;
@@ -84,6 +88,14 @@ h3 { /*titutlo del menu*/
 .card:hover{
     border: 4px #F8B42F outset;
 }
+
+    .card:hover .card-body{
+        color: #F8B42F;
+        background-color: rgba(0,0,0,0.8);
+    }
+    .card:hover .card-body h5{
+        font-size: 23px;
+    }
 
 .btn--pedidores{
     display: flex;

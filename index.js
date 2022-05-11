@@ -1,3 +1,7 @@
+var nombre = prompt('Nombre: ' );
+var Dirección = prompt('Dirección: ' );
+
+
 const burgers = [
     {name: 'ch simp', precio: 770},
     {name: 'ch', precio: 850},
@@ -117,7 +121,7 @@ function confirmacion(){
         });
     }
     else{
-    swal('Pedido confirmado', 'Precio total: $'+precioFinal+'\nCantidad de burgers: '+cantidadPedidos, 'success');
+    swal('Pedido confirmado',nombre +'\n'+Dirección + '\nPrecio total: $'+precioFinal+'\nCantidad de burgers: '+cantidadPedidos, 'success');
 
     precioFinal=0;
     cantidadPedidos=0;
