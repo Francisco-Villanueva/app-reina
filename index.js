@@ -1,5 +1,5 @@
-var nombre = prompt('Nombre: ' );
-var Dirección = prompt('Dirección: ' );
+var nombre = document.getElementById('clientName');
+var Dirección = document.getElementById('clientAdress');
 
 
 const burgers = [
@@ -121,9 +121,11 @@ function confirmacion(){
         });
     }
     else{
-    swal('Pedido confirmado',nombre +'\n'+Dirección + '\nPrecio total: $'+precioFinal+'\nCantidad de burgers: '+cantidadPedidos, 'success');
+    swal('Pedido confirmado',nombre.value +'\n'+Dirección.value + '\nPrecio total: $'+precioFinal+'\nCantidad de burgers: '+cantidadPedidos, 'success');
 
     precioFinal=0;
     cantidadPedidos=0;
+    nombre.value='';
+    Dirección.value='';
     }
 }

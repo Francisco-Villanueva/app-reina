@@ -53,7 +53,17 @@ h3 { /*titutlo del menu*/
   color: #F1F1F1;
   text-shadow: 1px 0 0 #000;
 }
+.datosCliente{
+    margin: auto;
+    width: 60vw;
+    display: flex;
+    justify-content: space-around;
+}
 
+.datosCliente input{
+    background-color: rgba(255, 255, 255, .8);
+    border: none
+}
 .menu-cards{
     display: flex;
     justify-content: space-around;
