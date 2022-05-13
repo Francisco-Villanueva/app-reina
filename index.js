@@ -1,29 +1,24 @@
 var nombre = document.getElementById('clientName');
 var Dirección = document.getElementById('clientAdress');
 
+function Burger(name, size, price){
+    this.name = name;
+    this.size = size;
+    this.price = price;
+};
 
 const burgers = [
-    {name: 'ch simp', precio: 770},
-    {name: 'ch', precio: 850},
-    {name: 'ch trip', precio: 1000},
-    {name: 'bacon simp', precio: 800},
-    {name: 'bacon', precio: 900},
-    {name: 'bacon trip', precio: 1050},
-    {name: 'cuarto simp', precio: 800},
-    {name: 'cuarto', precio: 900},
-    {name: 'cuarto trip', precio: 1050},
-    {name: 'blue simp', precio: 850},
-    {name: 'blue', precio: 950},
-    {name: 'blue trip', precio: 1100},
-    {name: 'life simp', precio: 800},
-    {name: 'life', precio: 900},
-    {name: 'life trip', precio: 1050},
-    {name: 'clasica simp', precio: 800},
-    {name: 'clasica', precio: 900},
-    {name: 'clasica trip', precio: 1050},
+    {name: 'Cheese', size:[1,2,3],   precio: [770,850,1000]},
+    {name: 'Bacon', size:[1,2,3],   precio: [800,900,1050]},
+    {name: 'Cuato de Libra', size:[1,2,3],   precio: [800,900,1050]},
+    {name: 'Life', size:[1,2,3],   precio: [800,900,1050]},
+    {name: 'Clasica', size:[1,2,3],   precio: [800,900,1050]},
+    {name: 'Blue', size:[1,2,3],   precio: [850,950,1100]},
 ];
 
 var cantBlue=document.getElementById('cantB');
+var sizeBlue=document.getElementById('sizeB');
+var sizeBacon=document.getElementById('sizeBacon');
 var cantClasic=document.getElementById('cantClas');
 var cantCuarto=document.getElementById('cantClib');
 var cantBacon=document.getElementById('cantBacon');
@@ -32,6 +27,18 @@ var cantLife=document.getElementById('cantLife');
 
 var precioFinal=0;
 var cantidadPedidos=0;
+
+
+function precio(n){
+    let precio =0;
+    for(var i=0 ; i<3 ; i++){
+        if(burgers[n].size[i] == sizeBacon.value){
+            precio = burgers[n].precio[i];
+        }
+    }
+
+    return precio;
+}
 
 function agregarB(){
     if(cantBlue.value===''){
@@ -50,9 +57,9 @@ else{
     let newCell = newRow.insertCell(0);
     newCell.textContent = cantBlue.value;
     newCell = newRow.insertCell(1);
-    newCell.textContent = 'Blue';
+    newCell.textContent = 'Blue' + sizeBlue.value;
     newCell = newRow.insertCell(2);
-    newCell.textContent ='$ '+ 950 * parseInt(cantBlue.value);
+    newCell.textContent ='$ '+ precio(5) * parseInt(cantBlue.value);
     
     //precioDeVenta +=  menu[i].precio * parseInt(cant.value);
     precioFinal += 950 * parseInt(cantBlue.value);
@@ -159,12 +166,12 @@ function agregarBacon(){
         let newCell = newRow.insertCell(0);
         newCell.textContent = cantBacon.value;
         newCell = newRow.insertCell(1);
-        newCell.textContent = 'Bacon';
+        newCell.textContent = 'Bacon' + sizeBacon.value;
         newCell = newRow.insertCell(2);
-        newCell.textContent ='$ '+ 900 * parseInt(cantBacon.value);
+        newCell.textContent ='$ '+ precio(1) * parseInt(cantBacon.value);
         
         //precioDeVenta +=  menu[i].precio * parseInt(cant.value);
-        precioFinal += 900 * parseInt(cantBacon.value);
+        precioFinal += precio(1) * parseInt(cantBacon.value);
         cantidadPedidos += parseInt(cantBacon.value);
         cantBacon.value='';
     }

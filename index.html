@@ -98,19 +98,20 @@
                 </div>
 
             </div>
-    <!------------------------------------MENÚ--------------------------------->    
+<!------------------------------------MENÚ--------------------------------->    
                    
     <div class="menu">
-                <div class="titulO-container">
+            <!--------------------titulo "menu"------------------>     
+            <div class="titulo-container">
                     <h3> ---- MENÚ  ----- </h3>
-                </div>
-
-                <div class="datosCliente">
+            </div>
+            <!--------------------datos cliete------------------>  
+            <div class="datosCliente">
                     <input type="text" name="" id="clientName" placeholder="Nombre">
                     <input type="text" name="" id="clientAdress" placeholder="Direccion">
-                </div>
+            </div>
             <!-------------------------------CARDS------------------------------->
-                <div class="menu-cards">
+            <div class="menu-cards">
 
                 <div class="card" style="width: 18rem;">
                     <img src="blue.jpg" class="card-img-top" alt="...">
@@ -125,6 +126,7 @@
                                     <button class="btn btn-outline-warning" onclick="agregarB()"> agregar </button>
 
                                     <input type="number" id="cantB">
+                                    <input type="range" min="1" max="3" step="1" id="sizeB">
                                 </div>
                     </div>
                 </div>   
@@ -147,7 +149,7 @@
                 <div class="card" style="width: 18rem;">
                     <img src="cuarto.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                            <h5 class="card-title">Cuarto de libra</h5>
+                            <h5 class="card-title">Cuarto de Libra</h5>
                             <div class="precios">
                             <p class="card-text">Simple: $800</p>
                             <p class="card-text">Doble: $900</p>
@@ -173,6 +175,7 @@
                                     <button class="btn btn-outline-warning" onclick="agregarBacon()"> agregar </button>
 
                                     <input type="number" id="cantBacon">
+                                    <input type="range" min="1" max="3" step="1" id="sizeBacon">
                                 </div>
                     </div>
                 </div>   
@@ -209,6 +212,7 @@
                     </div>
                 </div>   
             </div>
+            <!--------------------confirmar pedidos------------------>  
             <div class="btn-finPedido">
                 <button class="btn btn-success" onclick="confirmacion()"> Confirmar pedido </button>
             </div>
