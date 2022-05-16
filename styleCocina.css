@@ -1,0 +1,27 @@
+.contadores {
+  margin: auto;
+  width: 80vw;
+  background-color: #777;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+}
+.contadores p {
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.stock,
+.pedidos {
+  text-align: center;
+}
+
+.stock input {
+  width: 90px;
+  font-size: 50px;
+}
+
+.cantPedidos {
+  font-size: 50px;
+}
