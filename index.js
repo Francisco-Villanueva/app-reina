@@ -1,9 +1,8 @@
 var nombre = document.getElementById("clientName");
 var Dirección = document.getElementById("clientAdress");
 
-function Burger(name, size, price) {
+function Clients(name, price) {
   this.name = name;
-  this.size = size;
   this.price = price;
 }
 
@@ -16,6 +15,8 @@ const burgers = [
   { name: "Blue", size: [1, 2, 3], precio: [850, 950, 1100] },
 ];
 
+const clientes = [];
+
 var cantBlue = document.getElementById("cantB");
 var sizeBlue = document.getElementById("sizeB");
 var sizeBacon = document.getElementById("sizeBacon");
@@ -27,6 +28,9 @@ var cantLife = document.getElementById("cantLife");
 
 var precioFinal = 0;
 var cantidadPedidos = 0;
+var contadorPersonal = 0;
+var numeroDePedido = 0;
+var indexPedidos = 1;
 
 function precio(n) {
   let precio = 0;
@@ -64,6 +68,7 @@ function agregarB() {
     precioFinal += 950 * parseInt(cantBlue.value);
     cantidadPedidos += parseInt(cantBlue.value);
     cantBlue.value = "";
+    contadorPersonal++;
   }
 }
 function agregarClib() {
@@ -91,6 +96,7 @@ function agregarClib() {
     precioFinal += 900 * parseInt(cantCuarto.value);
     cantidadPedidos += parseInt(cantCuarto.value);
     cantCuarto.value = "";
+    contadorPersonal++;
   }
 }
 function agregarClas() {
@@ -109,15 +115,16 @@ function agregarClas() {
     newCell.textContent = nombre.value;
     newCell = newRow.insertCell(1);
     newCell.textContent = cantClasic.value;
-    newCell = newRow.insertCell(3);
+    newCell = newRow.insertCell(2);
     newCell.textContent = "Clásica";
-    newCell = newRow.insertCell(4);
+    newCell = newRow.insertCell(3);
     newCell.textContent = "$ " + 900 * parseInt(cantClasic.value);
 
     //precioDeVenta +=  menu[i].precio * parseInt(cant.value);
     precioFinal += 900 * parseInt(cantClasic.value);
     cantidadPedidos += parseInt(cantClasic.value);
     cantClasic.value = "";
+    contadorPersonal++;
   }
 }
 function agregarCh() {
@@ -145,6 +152,7 @@ function agregarCh() {
     precioFinal += 850 * parseInt(cantCh.value);
     cantidadPedidos += parseInt(cantCh.value);
     cantCh.value = "";
+    contadorPersonal++;
   }
 }
 function agregarBacon() {
@@ -172,6 +180,7 @@ function agregarBacon() {
     precioFinal += precio(1) * parseInt(cantBacon.value);
     cantidadPedidos += parseInt(cantBacon.value);
     cantBacon.value = "";
+    contadorPersonal++;
   }
 }
 function agregarLife() {
@@ -199,6 +208,7 @@ function agregarLife() {
     precioFinal += 950 * parseInt(cantLife.value);
     cantidadPedidos += parseInt(cantLife.value);
     cantLife.value = "";
+    contadorPersonal++;
   }
 }
 
@@ -220,6 +230,34 @@ function confirmacion() {
       "success"
     );
 
+    let aux = {
+      name: nombre.value,
+      adress: Dirección.value,
+      price: precioFinal,
+    };
+    // let tableRef = document.getElementById("tablaClientes");
+    // let newRow = tableRef.insertRow(-1);
+    // let newCell = newRow.insertCell(0);
+    // newCell.textContent = numeroDePedido;
+    // newCell = newRow.insertCell(1);
+    // newCell.textContent = aux.name;
+    // newCell = newRow.insertCell(2);
+    // newCell.textContent = aux.adress;
+    // newCell = newRow.insertCell(3);
+    // newCell.textContent = "$ " + precioFinal;
+
+    clientes.push(aux);
+    numeroDePedido++;
+    if (numeroDePedido % 2 === 0) {
+      for (let i = indexPedidos; i <= indexPedidos + contadorPersonal; i++) {
+        for (let j = 0; j < 4; j++) {
+          document.querySelectorAll("tr")[i].children[j].style.backgroundColor =
+            "#cecece";
+        }
+      }
+    }
+    indexPedidos += contadorPersonal;
+    contadorPersonal = 0;
     precioFinal = 0;
     cantidadPedidos = 0;
     nombre.value = "";
